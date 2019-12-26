@@ -37,7 +37,6 @@ class Home extends Component {
   editDataWidget = (slug, id) => {
     getSelectedWidgets(slug).then(result => {
       if (result) {
-        console.log(result);
         this.setState({
           widgetWillEdit: result,
           idWillEdit: id
@@ -47,8 +46,6 @@ class Home extends Component {
   };
 
   deleteDataWidget = id => {
-    console.log("delete working bro", id);
-
     swal({
       text: "Apakah kamu yakin perlu menghapus ini?",
       buttons: true,
@@ -62,7 +59,6 @@ class Home extends Component {
         });
         setTimeout(() => {
           deleteDataWidgets(id).then(result => {
-            console.log("its deleted");
             if (result) {
               getDataWidgets().then(result => {
                 if (result) {
@@ -132,7 +128,6 @@ class Home extends Component {
   };
 
   handleSubmitEdit = () => {
-    console.log("Handle SubmitEdit: ", this.state.formWidgetEdit);
     if (
       this.state.formWidgetEdit.name.length < 1 ||
       this.state.formWidgetEdit.price.length < 1 ||
@@ -147,7 +142,6 @@ class Home extends Component {
     editDataWidgets(this.state.formWidgetEdit, this.state.idWillEdit).then(
       result => {
         if (result) {
-          console.log("Hasilnya: ", result);
           getDataWidgets().then(result => {
             if (result) {
               swal({
@@ -166,7 +160,6 @@ class Home extends Component {
   };
 
   handleSubmit = () => {
-    console.log("Handle Submit: ", this.state.formWidgetPost);
     if (
       this.state.formWidgetPost.widgetName.length < 1 ||
       this.state.formWidgetPost.price.length < 1 ||
@@ -191,7 +184,6 @@ class Home extends Component {
   componentDidMount() {
     getDataWidgets().then(result => {
       if (result) {
-        console.log("result dari get", result);
         this.setState({
           dataWidgets: result
         });
