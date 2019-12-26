@@ -37,7 +37,6 @@ class Navbar extends Component {
   };
 
   handleSubmit = () => {
-    console.log("Handle Submit: ", this.state.formWidgetPost);
     this.postDataWidget();
   };
 
@@ -64,8 +63,6 @@ class Navbar extends Component {
           onChange={this.props.onChange}
           name={this.props.name}
           onSubmit={this.props.onSubmit}
-          // price={this.state.formWidgetPost.price}
-          // description={this.state.formWidgetPost.description}
         />
       </>
     );
